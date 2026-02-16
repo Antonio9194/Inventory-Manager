@@ -1,0 +1,12 @@
+<h1>Inventory</h1>
+<div>
+    <%= link_to "Add New Item", new_item_path %>
+</div>
+<hr>
+<ul>
+    <% @items.each do |item| %>
+    <li>
+        <%= item.name %>
+    </li>
+    <% end %>
+</ul>
