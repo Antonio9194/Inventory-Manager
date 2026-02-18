@@ -1,7 +1,13 @@
 class Item < ApplicationRecord
-  has_many :stock_movements
+  has_many :stock_movements, dependent: :destroy
 
-  def currnt_stock
+  def current_stock
     stock_movements.sum(:quantity)
+  end
+
+  LOW_STOCK = 200
+
+  def low_stock?
+    current_stock <= LOW_STOCK
   end
 end

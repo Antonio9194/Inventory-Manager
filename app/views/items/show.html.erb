@@ -1,0 +1,34 @@
+<%= link_to "Back to Items", root_path %>
+<h2>Add / Remove Stock</h2>
+<%=  simple_form_for [@item, StockMovement.new] do |f| %>
+  <div>
+    <%= f.input :quantity, as: :integer %>
+    <%= f.input :note %>
+    <%= f.button :submit, "Update Stock", class: "btn" %>
+  </div>
+<% end %>
+<h2><%= @item.name %> Stock History</h2>
+<h3>Current Stock: <%= @item.current_stock %></h3>
+<% if @item.low_stock? %>
+  <p class="low-stock-warning">⚠ Restock Immediately</p>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Quantity</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movements.each do |movement| %>
+      <tr>
+        <td><%= movement.created_at.strftime("%Y-%m-%d") %></td>
+        <td><%= movement.created_at.in_time_zone("Tokyo").strftime("%H:%M") %></td>
+        <td><%= movement.quantity %></td>
+        <td><%= movement.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

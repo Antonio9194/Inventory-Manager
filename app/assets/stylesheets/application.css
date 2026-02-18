@@ -1,10 +1,297 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f4f6f8;
+  margin: 40px;
+  color: #1f2937;
+}
+
+/* Title */
+.page-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Top bar */
+.top-bar {
+  margin-bottom: 30px;
+}
+
+/* Primary button */
+.btn-primary {
+  background: #1d4ed8;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: #1e40af;
+}
+
+/* Grid (your structure preserved) */
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Card */
+.inventory-card {
+  background: #ffffff;
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.15s ease;
+}
+
+.inventory-card:hover {
+  border-color: #d1d5db;
+}
+
+/* Header */
+.card-header {
+  margin-bottom: 10px;
+}
+
+.item-name {
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #111827;
+}
+
+.item-name:hover {
+  color: #1d4ed8;
+}
+
+/* Stock */
+.stock {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 0;
+  text-align: center;
+}
+
+.low {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Alert */
+.alert {
+  font-size: 13px;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #fef2f2;
+  color: #b91c1c;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* Footer aligned right */
+.card-footer {
+  margin-top: 15px;
+  text-align: right;
+}
+
+/* Delete button */
+.btn-danger {
+  background: #dc2626;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+/* Add Item */
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+/* Form container */
+form {
+  max-width: 400px;
+  margin-top: 20px;
+}
+
+/* Simple Form wrapper spacing */
+.simple_form .input {
+  margin-bottom: 16px;
+}
+
+/* Label */
+.simple_form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #374151;
+}
+
+/* Input field */
+.simple_form input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.simple_form input[type="text"]:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Submit button */
+.btn {
+  background: #1d4ed8;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background: #1e40af;
+}
+
+/* Item Show */
+
+/* Back link */
+a {
+  text-decoration: none;
+  color: #1d4ed8;
+  font-size: 14px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Section headings */
+h2 {
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+h3 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* Form spacing */
+.simple_form {
+  max-width: 400px;
+  margin-top: 15px;
+}
+
+.simple_form .input {
+  margin-bottom: 14px;
+}
+
+.simple_form input[type="number"],
+.simple_form input[type="text"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.simple_form input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+/* Button */
+.btn {
+  background: #1d4ed8;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background: #1e40af;
+}
+
+/* Low stock warning */
+p {
+  margin: 6px 0;
+}
+
+p:has(+ table) {
+  margin-bottom: 15px;
+}
+
+.low-stock-warning {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background: #f9fafb;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* Positive / Negative quantities */
+td:nth-child(3) {
+  font-weight: 500;
+}
+
+td:nth-child(3):not(:empty) {
+  color: #111827;
+}

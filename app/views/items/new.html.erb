@@ -1,0 +1,7 @@
+<%= link_to "Back to Items", root_path %>
+<%= simple_form_for @item do |f| %>
+  <div>
+    <%= f.input :name %>
+    <%= f.button :submit, "Add Item", class: "btn" %>
+  </div>
+<% end %>
