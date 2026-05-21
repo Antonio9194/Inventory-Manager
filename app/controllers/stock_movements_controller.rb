@@ -7,6 +7,7 @@ class StockMovementsController < ApplicationController
     if @movement.save
       redirect_to item_path(@item)
     else
+      flash[:alert] = "Something went wrong"
       redirect_to root_path
     end
   end

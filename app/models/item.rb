@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
   has_many :stock_movements, dependent: :destroy
 
+  validates :name, presence: true, uniqueness: true
+
   def current_stock
     stock_movements.sum(:quantity)
   end

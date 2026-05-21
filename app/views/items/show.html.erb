@@ -1,10 +1,12 @@
-<%= link_to "Back to Items", root_path %>
 <h2>Add / Remove Stock</h2>
 <%=  simple_form_for [@item, StockMovement.new] do |f| %>
   <div>
     <%= f.input :quantity, as: :integer %>
     <%= f.input :note %>
-    <%= f.button :submit, "Update Stock", class: "btn" %>
+    <div class="d-flex gap-3">
+      <%= f.button :submit, "Update Stock", class: "btn" %>
+      <%= link_to "Back to Items", root_path, class: "btn" %>
+    </div>
   </div>
 <% end %>
 <h2><%= @item.name %> Stock History</h2>

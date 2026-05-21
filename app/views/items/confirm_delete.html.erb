@@ -1,0 +1,9 @@
+<%= turbo_frame_tag "modal" do %>
+  <div class="modal-box">
+    <h2>Are you sure?</h2>
+    <div class="modal-actions">
+      <%= link_to "Yes, Delete", item_path(@item), class: "btn-danger", data: { turbo_method: :delete, turbo_frame: "_top" } %>
+      <%= link_to "No, Cancel", items_path, class: "btn", data: { turbo_frame: "_top" } %>
+    </div>
+  </div>
+<% end %>

@@ -5,7 +5,7 @@ class StockMovement < ApplicationRecord
   private
 
   def cannot_go_negative
-    if item.current_stock < 0
+    if item.current_stock + quantity < 0
       errors.add(:quantity, "Stock cannot be less than 0, restock immediately!")
     end
   end

@@ -1,4 +1,7 @@
-<h1 class="page-title">Inventory Manager</h1>
+<div class="page-header">
+  <h1 class="brand-name">Morikoya</h1>
+  <p class="brand-sub">Inventory Manager</p>
+</div>
 <div class="top-bar">
   <%= link_to "Add New Item", new_item_path, class: "btn-primary" %>
 </div>
@@ -22,11 +25,11 @@
         <% end %>
       </div>
       <div class="card-footer">
-        <%= link_to "Delete", item_path(item),
+        <%= link_to "Delete", confirm_delete_item_path(item),
           class: "btn-danger",
-          data: { turbo_method: :delete,
-                  turbo_confirm: "Are you sure?" } %>
+          data: { turbo_frame: "modal" } %>
       </div>
     </div>
   <% end %>
 </div>
+<turbo-frame id="modal"></turbo-frame>
