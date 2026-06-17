@@ -19,6 +19,12 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <% if user_signed_in? %>
+      <nav style="padding: 8px 16px; background: #1a1a1a; display: flex; justify-content: flex-end; align-items: center; gap: 12px;">
+        <span style="color: #aaa; font-size: 14px;"><%= current_user.email %></span>
+        <%= link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete }, style: "color: #f66; font-size: 14px;" %>
+      </nav>
+    <% end %>
     <%= yield %>
     <%= render "shared/flash" %>
   </body>
