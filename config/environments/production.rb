@@ -4,6 +4,7 @@ Rails.application.configure do
   config.enable_reloading = false
   config.eager_load = true
   config.consider_all_requests_local = false
+  config.force_ssl = true
 
   config.action_controller.perform_caching = true
 
@@ -27,7 +28,7 @@ Rails.application.configure do
   # ✅ Disable ActionCable explicitly
   config.action_cable.mount_path = nil
 
-  config.action_mailer.default_url_options = { host: "example.com" }
+  config.action_mailer.default_url_options = { host: ENV.fetch("APP_HOST", "localhost") }
 
   config.i18n.fallbacks = true
   config.active_record.dump_schema_after_migration = false
